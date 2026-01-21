@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-  const { email, password } = await req.json().catch(() => ({}));
+  const { username, password } = await req.json().catch(() => ({}));
 
   // Fake credentials (demo only)
   // TODO  modify the Typescript types for process.env to understand these variables
-  const demoEmail = process.env.DEMO_EMAIL ?? '';
-  const demoPassword = process.env.DEMO_PASSWORD ?? 'demo';
+  const demoUsername = process.env.DEMO_USERNAME ?? '';
+  const demoPassword = process.env.DEMO_PASSWORD ?? '';
 
-  if (email !== demoEmail || password !== demoPassword) {
+  if (username !== demoUsername || password !== demoPassword) {
     return NextResponse.json(
       { ok: false, error: "Invalid credentials" },
       { status: 401 }

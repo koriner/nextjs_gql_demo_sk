@@ -5,18 +5,19 @@ import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError('');
 
     try {
       const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, password }),
       });
 
       if (response.ok) {
@@ -36,7 +37,7 @@ export default function LoginPage() {
         <span className="blinky">DEMO&nbsp;/&nbsp;DEMO &nbsp; :)</span>
       </div>
       <form onSubmit={handleSubmit}>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+        <input type="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" />
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
         <button type="submit">Login</button>
       </form>

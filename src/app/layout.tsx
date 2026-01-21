@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fontSimpsons.variable}`}>
+      <body className={`${fontSimpsons.variable} body-content`}>
         <Background />
         {children}
       </body>
