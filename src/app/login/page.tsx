@@ -13,7 +13,7 @@ export default function LoginPage() {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -33,7 +33,7 @@ export default function LoginPage() {
     <div>
       <div>
         <h1>Login...</h1>
-        <span>DEMO/DEMO :)</span>
+        <span className="blinky">DEMO&nbsp;/&nbsp;DEMO &nbsp; :)</span>
       </div>
       <form onSubmit={handleSubmit}>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />

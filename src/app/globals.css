@@ -33,3 +33,14 @@ a {
     color-scheme: dark;
   }
 }
+
+/* Just for fun */
+.blinky {
+  animation: blinkMe 1s infinite;
+}
+
+@keyframes blinkMe {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
